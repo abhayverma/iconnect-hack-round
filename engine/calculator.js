@@ -62,19 +62,20 @@ module.exports = (enquiry) => {
   }
 
   for (const product of requestedQuantity) {
+
     masterInventory.sort((curr, next) => (curr[product.name].price > next[product.name].price) ? 1 : ((next[product.name].price > curr[product.name].price) ? -1 : 0));
 
     for (const [index, currentInventory] of masterInventory.entries()) {
 
       const iProductItem = currentInventory[product.name];
+      const overHead = product.quantity > 10 && masterInventory[index + 1] ? product.quantity % 10 : 0;
+
       defaultQuantities.insert(iProductItem.index, iProductItem.inventory);
       if (typeof totalPurchasePrice == 'string' ||
         (totalPurchasePrice > 0 && product.quantity == 0) ||
-        (currentInventory.country !== clientCountry && clientCountry == passportCountry && masterInventory[index + 1][product.name].inventory >= product.quantity)) {
+        (!overHead && currentInventory.country !== clientCountry && clientCountry == passportCountry && masterInventory[index + 1] && masterInventory[index + 1][product.name].inventory >= product.quantity)) {
         quantities.insert(iProductItem.index, iProductItem.inventory);
       } else {
-        const overHead = product.quantity > 10 && masterInventory[index + 1] ? product.quantity % 10 : 0;
-
         const purchasedItem = purchaseQuantity(iProductItem.inventory, iProductItem.price, product.quantity - overHead);
         totalPurchasePrice += purchasedItem.cost;
         totalPurchasePrice += applyTransportationCharges(clientCountry, currentInventory.country, passportCountry, purchasedItem.sale);
