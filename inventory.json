@@ -1,0 +1,28 @@
+[
+  {
+    "country": "uk",
+    "mask": {
+      "inventory": 100,
+      "price": 65,
+      "index": 0
+    },
+    "gloves": {
+      "inventory": 100,
+      "price": 100,
+      "index": 2
+    }
+  },
+  {
+    "country": "germany",
+    "mask": {
+      "inventory": 100,
+      "price": 100,
+      "index": 1
+    },
+    "gloves": {
+      "inventory": 50,
+      "price": 150,
+      "index": 3
+    }
+  }
+]

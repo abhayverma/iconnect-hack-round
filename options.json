@@ -1,0 +1,16 @@
+{
+  "countries": [
+    "uk",
+    "germany"
+  ],
+  "products": [
+    "gloves",
+    "mask"
+  ],
+  "passportValidator": {
+    "uk": "b[0-9]{3}[a-zA-Z]{2}[a-zA-Z0-9]{7}",
+    "germany": "a[a-zA-Z]{2}[a-zA-Z0-9]{9}"
+  },
+  "discount": 20,
+  "transportCost": 400
+}
