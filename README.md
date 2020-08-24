@@ -29,6 +29,18 @@ Once the packages are installed, use terminal window to start local instance
 ```
 node index.js
 ```
+OR
+
+```
+node .
+```
+The application runs in an infinite loop which is controlled using an input value to re-run the app cycle or exit it.
+The application accepts two values,
+- input request, which is the inventory item request of the format: <purchase_country>:<optional_passport_number>:<item_type>:<number_of_units_to_be_ordered>:<item_type>:<number_of_units_to_be_ordered> (with no space between separators)
+- re-run request, which can be replied with yes/y to re-run or any other key to exit.
+
+The output of the input request is in the below format, based on the requested input structure:
+<total_sale_price>:<Mask_UK_inventory>:<Mask_Germany_inventory> :<Gloves_UK_inventory>:<Gloves_Germany_inventory>
 
 - The inventory.json file contains local no-sql based static inventory data object.
 - The options.json file contains configuration options for countries, products, passport validation regex rules, discount, etc.
