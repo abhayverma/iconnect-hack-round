@@ -58,7 +58,7 @@ module.exports = (enquiry) => {
   // Validate and capture numeric units for requested products
   requestedQuantity = validator.findValidProductUnits(inputs);
   if (typeof requestedQuantity !== 'object') {
-    return calcResponse(false, `Invalid units - ${requestedQuantity}, please enter numeric value for units/quantity`);
+    return calcResponse(false, `Invalid units ${requestedQuantity}, please enter numeric value for units/quantity`);
   }
 
   for (const product of requestedQuantity) {

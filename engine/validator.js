@@ -30,7 +30,7 @@ module.exports = {
     let requestItems = [];
     request.forEach((item, i) => {
       if (options.products.indexOf(item) > -1) {
-        if (isNaN(request[i + 1])) {
+        if (isNaN(request[i + 1]) || request[i + 1] < 0) {
           requestItems = request[i + 1];
         } else {
           requestItems.push({
